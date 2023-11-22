@@ -11,3 +11,5 @@ const controller = new ClientsController(service);
 export const ClientsRouter = Router();
 ClientsRouter.get("/:idClient", controller.getClientInfo.bind(controller));
 ClientsRouter.delete("/:idClient", controller.deleteClient.bind(controller));
+//ClientsRouter.post("/:idClient", controller.insertClient.bind(controller));
+//ClientsRouter.update("/:idClient", controller..bind(controller));

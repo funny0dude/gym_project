@@ -19,4 +19,11 @@ export class ClientsRepo {
     await this.connection.getRepository(Client).remove(client);
   }
 
+  async insertClient(client: Client) { 
+    await this.connection.createEntityManager().save(client);
+  }
+
+  async updateClient(client: Client) { 
+    await this.connection.createEntityManager().save(client);
+  }
 }

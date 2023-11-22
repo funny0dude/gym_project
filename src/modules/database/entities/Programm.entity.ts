@@ -9,6 +9,9 @@ export class Programm {
   @Column()
   title!: string;
 
+  @Column()
+  room_code!: string;
+
   @OneToMany(() => ClientProgramm, (clientProgramm) => clientProgramm.programm)
   clientProgramms!: ClientProgramm[];
 }

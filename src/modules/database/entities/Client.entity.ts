@@ -9,6 +9,15 @@ export class Client {
   @Column()
   firstname!: string;
 
+  @Column()
+  surname!: string;
+
+  @Column()
+  patronymic!: string;
+
+  @Column()
+  phone!: string;
+
   @OneToMany(() => ClientProgramm, (clientProgramm) => clientProgramm.client)
   clientProgramms!: ClientProgramm[];
 }

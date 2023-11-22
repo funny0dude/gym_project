@@ -20,6 +20,7 @@ export class ClientsController {
     }
     
   }
+
   async deleteClient(req: Request, res: Response) {
     const idClient = Number(req.params.idClient);
     if (!idClient) {
@@ -28,6 +29,34 @@ export class ClientsController {
     }
     try {
     await this.clientsService.deleteClient(idClient);
+      res.status(200).end();
+    } catch (error) {
+      res.status(500).send({ message: `Внутренняя ошибка: ${error}` });
+    }
+  }
+
+  async createClient(req: Request, res: Response) {
+    const idClient = Number(req.params.idClient);
+    if (!idClient) {
+      res.status(400).send({ message: "Не указан идентификатор клиента!" });
+      return;
+    }
+    try {
+    await this.clientsService.createClient(firstname: string, surname: string, patronymic: string, phone: string);
+      res.status(200).end();
+    } catch (error) {
+      res.status(500).send({ message: `Внутренняя ошибка: ${error}` });
+    }
+  }
+
+  async updateClient(req: Request, res: Response) {
+    const idClient = Number(req.params.idClient);
+    if (!idClient) {
+      res.status(400).send({ message: "Не указан идентификатор клиента!" });
+      return;
+    }
+    try {
+    await this.clientsService.updateClient(idClient: number, firstname: string, surname: string, patronymic: string, phone: string)
       res.status(200).end();
     } catch (error) {
       res.status(500).send({ message: `Внутренняя ошибка: ${error}` });
