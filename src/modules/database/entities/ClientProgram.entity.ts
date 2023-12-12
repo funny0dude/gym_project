@@ -10,7 +10,7 @@ export class ClientProgramm {
   @Column()
   buy_date!: string;
 
-  @ManyToOne(() => Client, (client) => client.clientProgramms)
+  @ManyToOne(() => Client, (client) => client.clientPrograms)
   @JoinColumn({ name: "client_id" })
   client!: Client;
 
