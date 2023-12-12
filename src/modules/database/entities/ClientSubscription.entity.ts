@@ -2,7 +2,7 @@ import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "t
 import { Client } from "./Client.entity";
 import { Subscription } from "./Subscription.entity";
 
-@Entity({ name: "public.subscriptions" })
+@Entity({ name: "public.сlient_subscriptions" })
 export class ClientSubscription {
   @PrimaryGeneratedColumn()
   id!: number;
@@ -10,7 +10,7 @@ export class ClientSubscription {
   @Column()
   buy_date!: string;
 
-  @ManyToOne(() => Client, (client) => client.сlientSubscriptions)
+  @ManyToOne(() => Client, (client) => client.clientSubscriptions)
   @JoinColumn({ name: "client_id" })
   client!: Client;
 

@@ -13,7 +13,7 @@ export class ProgramsRepo {
   }
 
   async deleteProgram(program: Program) {
-    // await this.connection.createQueryBuilder(Program, 'p').where('p.id = :idProgramm', { idProgramm }).delete()
+    // await this.connection.createQueryBuilder(Program, 'p').where('p.id = :idProgram', { idProgram }).delete()
     await this.connection.getRepository(Program).remove(program);
   }
 

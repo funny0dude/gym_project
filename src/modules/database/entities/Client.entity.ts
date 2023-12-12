@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { ClientProgram } from "./ClientProgram.entity";
+import { ClientSubscription } from "./ClientSubscription.entity";
 
 @Entity({ name: "public.clients" })
 export class Client {
@@ -19,5 +20,8 @@ export class Client {
   phone!: string;
 
   @OneToMany(() => ClientProgram, (clientProgram) => clientProgram.client)
-  clientProgramms!: ClientProgram[];
+  clientPrograms!: ClientProgram[];
+
+  @OneToMany(() => ClientSubscription, (clientSubscription) => clientSubscription.client)
+  clientSubscriptions!: ClientSubscription[];
 }

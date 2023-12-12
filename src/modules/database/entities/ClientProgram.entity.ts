@@ -2,8 +2,8 @@ import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "t
 import { Client } from "./Client.entity";
 import { Program } from "./Program.entity";
 
-@Entity({ name: "public.clients_programms" })
-export class ClientProgramm {
+@Entity({ name: "public.clients_programs" })
+export class ClientProgram {
   @PrimaryGeneratedColumn()
   id!: number;
 
@@ -15,6 +15,6 @@ export class ClientProgramm {
   client!: Client;
 
   @ManyToOne(() => Program, (program) => program.clientPrograms)
-  @JoinColumn({ name: "programm_id" })
-  programm!: Program;
+  @JoinColumn({ name: "program_id" })
+  program!: Program;
 }
