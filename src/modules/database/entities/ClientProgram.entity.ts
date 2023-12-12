@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Client } from "./Client.entity";
-import { Programm } from "./Programm.entity";
+import { Program } from "./Program.entity";
 
 @Entity({ name: "public.clients_programms" })
 export class ClientProgramm {
@@ -14,7 +14,7 @@ export class ClientProgramm {
   @JoinColumn({ name: "client_id" })
   client!: Client;
 
-  @ManyToOne(() => Programm, (programm) => programm.clientProgramms)
+  @ManyToOne(() => Program, (program) => program.clientPrograms)
   @JoinColumn({ name: "programm_id" })
-  programm!: Programm;
+  programm!: Program;
 }

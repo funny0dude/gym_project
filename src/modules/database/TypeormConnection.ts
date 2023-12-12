@@ -1,7 +1,7 @@
 import { DataSource } from "typeorm";
 import { Client } from "./entities/Client.entity";
-import { Programm } from "./entities/Programm.entity";
-import { ClientProgramm } from "./entities/ClientProgramm.entity";
+import { Program } from "./entities/Program.entity";
+import { ClientProgramm } from "./entities/ClientProgram.entity";
 
 export const TypeormConnection = new DataSource({
   type: "postgres",
@@ -12,5 +12,5 @@ export const TypeormConnection = new DataSource({
   database: "fitness",
   synchronize: false,
   logging: true,
-  entities: [Client, Programm, ClientProgramm],
+  entities: [Client, Program, ClientProgramm],
 });

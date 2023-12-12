@@ -36,13 +36,28 @@ export class ClientsController {
   }
 
   async createClient(req: Request, res: Response) {
-    const idClient = Number(req.params.idClient);
-    if (!idClient) {
-      res.status(400).send({ message: "Не указан идентификатор клиента!" });
+    const firstname = String(req.body.firstname);
+    if (!firstname) {
+      res.status(400).send({ message: "Не указано имя клиента!" });
+      return;
+    }
+    const surname = String(req.body.surname);
+    if (!surname) {
+      res.status(400).send({ message: "Не указана фамилия клиента!" });
+      return;
+    }
+    const patronymic = String(req.body.patronymic);
+    if (!patronymic) {
+      res.status(400).send({ message: "Не указано отчество клиента!" });
+      return;
+    }
+    const phone = String(req.body.phone);
+    if (!phone) {
+      res.status(400).send({ message: "Не указан телефон клиента!" });
       return;
     }
     try {
-    await this.clientsService.createClient(firstname: string, surname: string, patronymic: string, phone: string);
+    await this.clientsService.createClient(firstname, surname, patronymic, phone);
       res.status(200).end();
     } catch (error) {
       res.status(500).send({ message: `Внутренняя ошибка: ${error}` });
@@ -55,8 +70,28 @@ export class ClientsController {
       res.status(400).send({ message: "Не указан идентификатор клиента!" });
       return;
     }
+    const firstname = String(req.body.firstname);
+    if (!firstname) {
+      res.status(400).send({ message: "Не указано имя клиента!" });
+      return;
+    }
+    const surname = String(req.body.surname);
+    if (!surname) {
+      res.status(400).send({ message: "Не указана фамилия клиента!" });
+      return;
+    }
+    const patronymic = String(req.body.patronymic);
+    if (!patronymic) {
+      res.status(400).send({ message: "Не указано отчество клиента!" });
+      return;
+    }
+    const phone = String(req.body.phone);
+    if (!phone) {
+      res.status(400).send({ message: "Не указан телефон клиента!" });
+      return;
+    }
     try {
-    await this.clientsService.updateClient(idClient: number, firstname: string, surname: string, patronymic: string, phone: string)
+    await this.clientsService.updateClient(idClient, firstname, surname, patronymic, phone);
       res.status(200).end();
     } catch (error) {
       res.status(500).send({ message: `Внутренняя ошибка: ${error}` });
