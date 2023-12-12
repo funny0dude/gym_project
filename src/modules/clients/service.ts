@@ -2,7 +2,7 @@ import { Client } from "../database/entities/Client.entity";
 import { ClientsRepo } from "./clients-repo";
 
 export class ClientService {
-  constructor(private readonly subscriptionRepo: ClientsRepo) {}
+  constructor(private readonly clientsRepo: ClientsRepo) {}
 
   async getClientInfo(idClient: number) {
     const client = await this.clientsRepo.getClient(idClient);
@@ -12,7 +12,7 @@ export class ClientService {
 
   async deleteClient(idClient: number) {
     const client = await this.clientsRepo.getClient(idClient);
-    if (!client) throw new Error("Абонимент не найден!");
+    if (!client) throw new Error("Клиент не найден!");
     await this.clientsRepo.deleteClient(client);
   }
 
@@ -27,11 +27,11 @@ export class ClientService {
 
   async updateClient(idClient: number, firstname: string, surname: string, patronymic: string, phone: string) {
     const client = await this.clientsRepo.getClient(idClient);
-    if (!client) throw new Error("Абонимент не найден!");
+    if (!client) throw new Error("Клиент не найден!");
     client.firstname = firstname;
     client.surname = surname;
     client.patronymic = patronymic;
     client.phone = phone;
-    await this.subscriptionRepo.updateClient(client);
+    await this.clientsRepo.updateClient(client);
   }
 }

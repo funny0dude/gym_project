@@ -10,7 +10,7 @@ export class ClientSubscription {
   @Column()
   buy_date!: string;
 
-  @ManyToOne(() => Client, (client) => client.clientSubscriptions)
+  @ManyToOne(() => Client, (client) => client.сlientSubscriptionы)
   @JoinColumn({ name: "client_id" })
   client!: Client;
 

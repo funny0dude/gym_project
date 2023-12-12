@@ -12,6 +12,6 @@ export class Program {
   @Column()
   room_code!: string;
 
-  @OneToMany(() => ClientProgram, (clientProgram) => clientProgram.programm)
+  @OneToMany(() => ClientProgram, (clientProgram) => clientProgram.program)
   clientPrograms!: ClientProgram[];
 }
