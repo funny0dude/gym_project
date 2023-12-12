@@ -77,7 +77,7 @@ export class SubscriptionsController {
     }
     const duration_id = Number(req.body.duration_id);
     if (!duration_id) {
-      res.status(400).send({ message: "Не указано время!" });
+      res.status(400).send({ message: "Не указана продолжительность!" });
       return;
     }
     try {

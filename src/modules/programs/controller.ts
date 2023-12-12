@@ -8,7 +8,7 @@ export class ProgramController {
   async getProgramInfo(req: Request, res: Response) {
     const idProgram = Number(req.params.idProgram);
     if (!idProgram) {
-      res.status(400).send({ message: "Не указан идентификатор клиента!" });
+      res.status(400).send({ message: "Не указан идентификатор программы!" });
       return;
     }
     try {
